@@ -6,9 +6,9 @@ packages_install(){
     else
     echo "[~] PHP Is not installed, Installing it for you"
     sleep 2
-    apt-get installed php -y >/dev/null 2>&1
+    apt install php -y >/dev/null 2>&1
     fi
-    if [[ `command -v ngrok`  ]]; then
+    if [[ -e ngrok  ]]; then
     echo ''
     else
     echo "[~] ngrok is not installed, Installing it for you"
@@ -284,7 +284,7 @@ start(){
     cd sites/$server && php -S 127.0.0.1:80 >/dev/null 2>&1 &
     echo "[~] PHP server started on port 80"
     sleep 2
-    ngrok http 127.0.0.1:80 >/dev/null 2>&1 &
+    ./ngrok http 127.0.0.1:80 >/dev/null 2>&1 &
     echo "[~] ngrok started on port 80"
     sleep 2
     show_link
