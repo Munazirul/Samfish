@@ -17,12 +17,14 @@ packages_install(){
     wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>&1 
     unzip ngrok-stable-linux-amd64.zip && rm -rf ngrok-stable-linux-amd64.zip >/dev/null 2>&1
     chmod +x ngrok >/dev/null 2>&1
+    printf "Create an account at ngrok and paste the authtoken here.\n"
     echo "Enter your authtoken:"
     read token
     ./ngrok authtoken $token
     else 
     apt install wget -y >/dev/null 2>&1 && apt install unzip >/dev/null 2>&1
     wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>&1 && unzip ngrok-stable-linux-amd64.zip && rm -rf ngrok-stable-linux-amd64.zip && chmod +x ngrok >/dev/null 2>&1
+    printf "Create an account at ngrok and paste the authtoken here.\n"
     echo "Enter your authtoken:"
     read token
     ./ngrok authtoken $token
