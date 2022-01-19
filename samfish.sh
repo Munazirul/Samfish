@@ -296,9 +296,9 @@ start(){
     printf "\n[~] PHP server started on port 8080 \n"
     sleep 3
     if [[ -e ngrok ]]; then
-    ./ngrok http 127.0.0.1:80 >/dev/null 2>&1 &
+    ./ngrok http 127.0.0.1:8080 >/dev/null 2>&1 &
     else 
-    ngrok http 127.0.0.1:80 >/dev/null 2>&1 &
+    ngrok http 127.0.0.1:8080 >/dev/null 2>&1 &
     fi
     printf "[~] ngrok started on port 8080 \n"
     sleep 3
