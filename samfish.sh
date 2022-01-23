@@ -21,8 +21,7 @@ packages_install(){
     read -p "[+] Paste your authtoken: " token
     ./ngrok authtoken $token >/dev/null 2>&1
     else 
-    apt install wget -y >/dev/null 2>&1 && apt install unzip >/dev/null 2>&1
-    apt install curl -y >/dev/null 2>&1
+    sudo apt install wget -y >/dev/null 2>&1 && sudo apt install unzip >/dev/null 2>&1 sudo apt install curl -y >/dev/null 2>&1
     wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>&1 && unzip ngrok-stable-linux-amd64.zip && rm -rf ngrok-stable-linux-amd64.zip && chmod +x ngrok >/dev/null 2>&1
     printf "[~] Create an account at ngrok.com and paste the authtoken here (If you have already configured the authtoken, press enter)\n."
     read -p "[+] Paste your authtoken: " token 
