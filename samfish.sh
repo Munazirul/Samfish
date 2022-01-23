@@ -13,7 +13,7 @@ packages_install(){
     else
     echo "[~] Installing ngrok..."
     sleep 2
-    if [[ `command -v wget` && `command -v unzip` ]]; then
+    if [[ `command -v wget` && `command -v unzip` && `command -v curl` ]]; then
     wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>&1 
     unzip ngrok-stable-linux-amd64.zip && rm -rf ngrok-stable-linux-amd64.zip >/dev/null 2>&1
     chmod +x ngrok >/dev/null 2>&1
@@ -44,7 +44,7 @@ echo "   >   :::: ::   ::   :::  :::     ::    ::        ::  :::: ::   ::   ::: 
 echo "   >   :: : :     :   : :   :      :     :        :    :: : :     :   : :  >"
 echo "   >                                                                       >"
 echo "   >  Developed by Munazir                                                 >"
-echo "   >  github.com/Munazirul/samfish                                v2.2     >"
+echo "   >  github.com/Munazirul/samfish                                v2.3     >"
 echo "   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo ""  
 echo ""                                                                 
