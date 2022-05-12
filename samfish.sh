@@ -245,7 +245,7 @@ show_link(){
     sudo apt install curl -y >/dev/null 2>&1
     link=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
     printf "\n[+] Send this link to the target: http://$link\n"
-    done
+    fi
 }
 stop() {
 
